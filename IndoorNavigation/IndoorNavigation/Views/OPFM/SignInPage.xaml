@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:i18n="clr-namespace:IndoorNavigation.Resources.Helpers"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="{i18n:Translate LOGIN_STRING}"
+             mc:Ignorable="d"
+             x:Class="IndoorNavigation.SignInPage">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 0, 0, 25" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+                <On Platform="UWP" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout Padding="20" Margin="30">
+                <Label Text="{i18n:Translate IDNUM_STRING}" FontSize="Large" />
+                <Entry x:Name="IDnumEntry" Placeholder="{i18n:Translate INPUT_ID_NUMBER_STRING}" FontSize="Large" MaxLength="10"/>
+            </StackLayout>
+            <StackLayout Padding="20" Margin="30">
+                <Label Text="{i18n:Translate REGISTERDAY_STRING}" FontSize="Large"/>
+                <DatePicker x:Name="RgDayPicker" MinimumDate="1/1/2019" IsEnabled="True"/>
+            </StackLayout>
+            <Button Text="{i18n:Translate OK_STRING}" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
