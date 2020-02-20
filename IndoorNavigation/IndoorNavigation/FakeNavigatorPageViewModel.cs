@@ -67,6 +67,14 @@ namespace IndoorNavigation
         public FakeNavigatorPageViewModel(string navigationGraphName, Guid destinationRegionID, Guid destinationWaypointID,
             string destinationWaypointName, XMLInformation informationXml)
         {
+            #region UI init
+            ProgressBar = "0/0";
+            NavigationProgress = 0;
+            CurrentStepImage = "waittingscan.gif";
+            isPlaying = true;
+            CurrentStepLabel = _resourceManager.GetString("NO_SIGNAL_STRING", _currentLanguage);
+            CurrentWaypointName = _resourceManager.GetString("NULL_STRING", _currentLanguage);
+            #endregion
 
             _destinationRegionID = destinationRegionID;
             _destinationWaypointID = destinationWaypointID;
@@ -93,8 +101,8 @@ namespace IndoorNavigation
             _graphRegionGraph = _navigationGraph.GenerateRegionGraph(_avoidConnectionTypes);
             GenerateRoute(_currentRegionID, _currentWaypointID, _destinationRegionID, _destinationWaypointID);
 
-
             StartToNavigate();
+
         }
 
         private void GenerateRoute(Guid sourceRegionID,
@@ -114,7 +122,9 @@ namespace IndoorNavigation
             if (0 == pathRegions.Count())
             {
                 Console.WriteLine("No path. Need to change avoid connection type");
-                PopupNavigation.Instance.PushAsync(new AlertDialogPopupPage("No route"));
+                //PopupNavigation.Instance.PushAsync(new AlertDialogPopupPage("No route"));
+                //Console.WriteLine($"waypoint route count={_waypointsOnRoute.Count}");
+                //GoAdjustType();
                 return;
             }
 
@@ -254,7 +264,7 @@ namespace IndoorNavigation
                                   checkPoint._regionID,
                                   checkPoint._waypointID);
             }
-
+            
         }
 
         private void setAvoidConnection()
@@ -911,26 +921,58 @@ namespace IndoorNavigation
         //        instruction._turnDirectionDistance = _navigationGraph.GetDistanceOfLongHallway(_waypointsOnRoute[nextStep], nextStep + 1, _waypointsOnRoute, _avoidConnectionTypes);
         //        instruction._progress = getProgress(nextStep);
         //        instruction._progressBar = $"{nextStep}/{_waypointsOnRoute.Count}";
-                    
-        //    }
-           
-        //}
 
+        //    }
+
+        //}
+        CultureInfo _currentLanguage = CrossMultilingual.Current.CurrentCultureInfo;
+        private Page mainPage = Application.Current.MainPage;
         public void StartToNavigate()
         {
             Console.WriteLine("Start to navigate");
+            
+
             Thread NavigateThread = new Thread(() =>
-              {
-                  for(int nextStep=0;nextStep<_waypointsOnRoute.Count;nextStep++)
+              {                                 
+
+                  Thread.Sleep(2000);
+
+                  if (_waypointsOnRoute == null || _waypointsOnRoute.Count == 0)
                   {
-                      CheckArrivedWaypoint(_waypointsOnRoute[nextStep]._waypointID, _waypointsOnRoute[nextStep]._regionID, nextStep);
-                      Thread.Sleep(4000);
+                      GoAdjustType();
+                  }
+                  else
+                  {
+                      for (int nextStep = 0; nextStep < _waypointsOnRoute.Count; nextStep++)
+                      {
+                          CheckArrivedWaypoint(_waypointsOnRoute[nextStep]._waypointID, _waypointsOnRoute[nextStep]._regionID, nextStep);
+                          Thread.Sleep(4000);
+
+                          app._tmpCurrentRegionID = _waypointsOnRoute[nextStep]._regionID;
+                          app._tmpCurrentWaypointID = _waypointsOnRoute[nextStep]._waypointID;
+                          app.LastWaypointName = _navigationGraph.GetWaypointNameInRegion(app._tmpCurrentRegionID, app._tmpCurrentWaypointID);
+                      }
                   }
               });
             NavigateThread.Start();
             Console.WriteLine("Finish navigate");
         }
-     
+        private Page tempMainPage = Application.Current.MainPage;
+         private void GoAdjustType()
+        {
+            Device.BeginInvokeOnMainThread(async () => {
+                for (int PageIndex = tempMainPage.Navigation.NavigationStack.Count - 1; PageIndex > 1; PageIndex--)
+                {
+                    tempMainPage.Navigation.RemovePage(tempMainPage.Navigation.NavigationStack[PageIndex]);
+                }
+                await tempMainPage.Navigation.PushAsync(new NavigatorSettingPage(), true);
+                await tempMainPage.DisplayAlert(
+                    _resourceManager.GetString("WARN_STRING", _currentLanguage),
+                    _resourceManager.GetString("PLEASE_ADJUST_AVOID_ROUTE_STRING", _currentLanguage),
+                    _resourceManager.GetString("OK_STRING", _currentLanguage));
+            });
+            
+        }
 
         private string getProgressBarString(int nextStep)
         {

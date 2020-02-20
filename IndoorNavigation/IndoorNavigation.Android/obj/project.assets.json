@@ -2002,11 +2002,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation.Android\\IndoorNavigation.Android.csproj",
+      "projectUniqueName": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation.Android\\IndoorNavigation.Android.csproj",
       "projectName": "IndoorNavigation.Android",
-      "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation.Android\\IndoorNavigation.Android.csproj",
+      "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation.Android\\IndoorNavigation.Android.csproj",
       "packagesPath": "C:\\Users\\janelab\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation.Android\\obj\\",
+      "outputPath": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2027,8 +2027,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj": {
-              "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj"
+            "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj": {
+              "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj"
             }
           }
         }

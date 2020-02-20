@@ -56,6 +56,7 @@ using Microsoft.AppCenter.Crashes;
 using IndoorNavigation.Resources;
 using Plugin.Multilingual;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 using System;
 
@@ -72,15 +73,15 @@ namespace IndoorNavigation
         public string IDnumber = Preferences.Get("ID_NUMBER_STRING", string.Empty);
         public bool HaveCashier = false;
         public bool getCashier = false;
-        public DateTime RgDate = DateTime.Now;
+        public DateTime RgDate = Convert.ToDateTime("2019-12-10");
         public RgRecord roundRecord = null;
         public RgRecord lastFinished = null;
-        //---------------
-        public string LastWaypointName = "";
-
+        //---------------        
         #region 
         public Guid _tmpCurrentRegionID;
         public Guid _tmpCurrentWaypointID;
+        public string LastWaypointName = "";
+
         #endregion
         public App()
         {

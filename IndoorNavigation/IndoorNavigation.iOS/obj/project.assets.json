@@ -2438,11 +2438,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation.iOS\\IndoorNavigation.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation.iOS\\IndoorNavigation.iOS.csproj",
       "projectName": "IndoorNavigation.iOS",
-      "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation.iOS\\IndoorNavigation.iOS.csproj",
+      "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation.iOS\\IndoorNavigation.iOS.csproj",
       "packagesPath": "C:\\Users\\janelab\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation.iOS\\obj\\",
+      "outputPath": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2463,8 +2463,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj": {
-              "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj"
+            "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj": {
+              "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj"
             }
           }
         }

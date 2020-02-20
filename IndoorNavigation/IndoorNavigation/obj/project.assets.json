@@ -1240,11 +1240,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj",
+      "projectUniqueName": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj",
       "projectName": "IndoorNavigation",
-      "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj",
+      "projectPath": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation\\IndoorNavigation.csproj",
       "packagesPath": "C:\\Users\\janelab\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janelab\\Documents\\GitHub\\OutPatientFlowAPP_virtualPage_ver\\IndoorNavigation\\IndoorNavigation\\obj\\",
+      "outputPath": "C:\\Users\\janelab\\Documents\\GitHub\\OPFM_virtual\\IndoorNavigation\\IndoorNavigation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

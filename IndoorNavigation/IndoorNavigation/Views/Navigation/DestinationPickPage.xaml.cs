@@ -127,13 +127,19 @@ namespace IndoorNavigation.Views.Navigation
             if (e.Item is DestinationItem destination)
             {
                 Console.WriteLine(">> Handle_ItemTapped in DestinationPickPage");
-
-                await Navigation.PushAsync(new NavigatorPage(_navigationGraphName,
-                                                             destination._regionID,
-                                                             destination._waypointID,
-                                                             destination._waypointName,
-                                                             _nameInformation
-                                                             ));
+                if (_navigationGraphName ==_resourceManager.GetString("YUANLIN_CHRISTIAN_HOSPITAL_STRING", CrossMultilingual.Current.CurrentCultureInfo))
+                {
+                    await Navigation.PushAsync(new FakeNavigatorPage(_navigationGraphName, destination._regionID, destination._waypointID, destination._waypointName, _nameInformation));
+                }
+                else
+                {
+                    await Navigation.PushAsync(new NavigatorPage(_navigationGraphName,
+                                                                 destination._regionID,
+                                                                 destination._waypointID,
+                                                                 destination._waypointName,
+                                                                 _nameInformation
+                                                                 ));
+                }
             }
 
             //Deselect Item
