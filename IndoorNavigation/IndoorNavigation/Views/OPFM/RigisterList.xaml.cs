@@ -7,7 +7,6 @@ using IndoorNavigation.Views.Navigation;
 using Plugin.Multilingual;
 using Rg.Plugins.Popup.Services;
 using System;
-using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Reflection;
 using System.Resources;
@@ -16,8 +15,6 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.ComponentModel;
-using System.Threading;
 namespace IndoorNavigation
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -195,23 +192,24 @@ namespace IndoorNavigation
         }    
 
         /*the function is a button event to add payment and medicine recieving route to listview*/
-        async private void PaymemtListBtn_Clicked(object sender, EventArgs e)
+        private void PaymemtListBtn_Clicked(object sender, EventArgs e)
         {
             Buttonable(false);    
             if (isButtonPressed) return;
             isButtonPressed = true;
             PaymemtListBtn.IsEnabled = false;
             PaymemtListBtn.IsVisible = false;
-            await PopupNavigation.Instance.PushAsync(new PickCashierPopupPage());
-            MessagingCenter.Subscribe<PickCashierPopupPage, bool>(this, "GetCashierorNot", (Messagesender, Messageargs) =>
-            {                
-                PaymemtListBtn.IsEnabled = !(bool)Messageargs;
-                PaymemtListBtn.IsVisible = !(bool)Messageargs;
-                Buttonable(!(bool)Messageargs);
 
-                isButtonPressed = false;
-                MessagingCenter.Unsubscribe<PickCashierPopupPage, bool>(this, "GetCashierorNot");
-            });              
+            app.records.Insert(app.records.Count-1 ,
+                new RgRecord {  _regionID=new Guid("22222222-2222-2222-2222-222222222222"), _waypointID=new Guid("00000000-0000-0000-0000-000000000016"), _waypointName="批價",
+                    _floor="1", type=RecordType.Cashier, DptName="批價"
+                });
+            app.records.Insert(app.records.Count - 1, 
+                new RgRecord { _regionID = new Guid("22222222-2222-2222-2222-222222222222"), _waypointID = new Guid("00000000-0000-0000-0000-000000000019"),
+                    _waypointName = "領藥", _floor="1", type=RecordType.Pharmacy, DptName="領藥"
+                }) ;
+            RefreshListView();
+            isButtonPressed = false;
         }
 
         /*to show popup page for add route to listview*/

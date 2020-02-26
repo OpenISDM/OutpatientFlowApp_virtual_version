@@ -40,6 +40,7 @@ namespace IndoorNavigation
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+            _viewmodel.onStop();
            // app.LastWaypointName = _viewmodel.CurrentWaypointName;//_destinationName;
         }
     }

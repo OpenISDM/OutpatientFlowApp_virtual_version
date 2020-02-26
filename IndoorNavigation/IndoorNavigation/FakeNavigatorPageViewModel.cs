@@ -927,12 +927,13 @@ namespace IndoorNavigation
         //}
         CultureInfo _currentLanguage = CrossMultilingual.Current.CurrentCultureInfo;
         private Page mainPage = Application.Current.MainPage;
+        Thread NavigateThread;
         public void StartToNavigate()
         {
             Console.WriteLine("Start to navigate");
             
 
-            Thread NavigateThread = new Thread(() =>
+              NavigateThread = new Thread(() =>
               {                                 
 
                   Thread.Sleep(2000);
@@ -943,20 +944,28 @@ namespace IndoorNavigation
                   }
                   else
                   {
+                      //Vibration.Vibrate(500);
                       for (int nextStep = 0; nextStep < _waypointsOnRoute.Count; nextStep++)
                       {
                           CheckArrivedWaypoint(_waypointsOnRoute[nextStep]._waypointID, _waypointsOnRoute[nextStep]._regionID, nextStep);
+                          Vibration.Vibrate(500);
                           Thread.Sleep(4000);
-
+                          
                           app._tmpCurrentRegionID = _waypointsOnRoute[nextStep]._regionID;
                           app._tmpCurrentWaypointID = _waypointsOnRoute[nextStep]._waypointID;
                           app.LastWaypointName = _navigationGraph.GetWaypointNameInRegion(app._tmpCurrentRegionID, app._tmpCurrentWaypointID);
                       }
-                  }
+                  }                  
               });
             NavigateThread.Start();
             Console.WriteLine("Finish navigate");
         }
+
+        public void onStop()
+        {
+            NavigateThread.Abort();
+        }
+
         private Page tempMainPage = Application.Current.MainPage;
          private void GoAdjustType()
         {

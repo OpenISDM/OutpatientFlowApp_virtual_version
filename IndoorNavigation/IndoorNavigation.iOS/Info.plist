@@ -21,9 +21,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleDisplayName</key>
-	<string>WPIN</string>
+	<string>WPIN_Virtual</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.OpenISDM.OPFM</string>
+	<string>com.OpenISDM.OPFM.virtual</string>
 	<key>CFBundleVersion</key>
 	<string>2.0.1070</string>
 	<key>CFBundleName</key>

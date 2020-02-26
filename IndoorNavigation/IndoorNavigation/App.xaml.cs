@@ -73,7 +73,7 @@ namespace IndoorNavigation
         public string IDnumber = Preferences.Get("ID_NUMBER_STRING", string.Empty);
         public bool HaveCashier = false;
         public bool getCashier = false;
-        public DateTime RgDate = Convert.ToDateTime("2019-12-10");
+        public DateTime RgDate = Convert.ToDateTime("2019-12-24");
         public RgRecord roundRecord = null;
         public RgRecord lastFinished = null;
         //---------------        

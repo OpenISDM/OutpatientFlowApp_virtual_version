@@ -33,7 +33,7 @@ namespace IndoorNavigation
 
             _backClick = NoButton_Back;
             TempMessage.Text = context;
-            Device.StartTimer(TimeSpan.FromSeconds(2.2), () =>
+            Device.StartTimer(TimeSpan.FromSeconds(5.0), () =>
             {
                 //to prevent from crash issue that user have close the popup page then popup stack is empty.
                 if (PopupNavigation.Instance.PopupStack.Count > 0)
