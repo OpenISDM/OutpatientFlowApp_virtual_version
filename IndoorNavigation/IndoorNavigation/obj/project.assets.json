@@ -640,6 +640,7 @@
         "lib/Xamarin.Mac20/Plugin.Multilingual.Abstractions.xml",
         "lib/Xamarin.Mac20/Plugin.Multilingual.dll",
         "lib/Xamarin.iOS10/Plugin.Multilingual.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Multilingual.Abstractions.dll.mdb",
         "lib/Xamarin.iOS10/Plugin.Multilingual.Abstractions.pdb",
         "lib/Xamarin.iOS10/Plugin.Multilingual.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Multilingual.XML",
@@ -884,6 +885,7 @@
         "lib/uap10.0.16299/Xamarin.Essentials.pri",
         "lib/uap10.0.16299/Xamarin.Essentials.xml",
         "lib/xamarinios10/Xamarin.Essentials.dll",
+        "lib/xamarinios10/Xamarin.Essentials.dll.mdb",
         "lib/xamarinios10/Xamarin.Essentials.pdb",
         "lib/xamarinios10/Xamarin.Essentials.xml",
         "readme.txt",
@@ -1158,6 +1160,7 @@
         "lib/MonoAndroid90/Xamarin.Forms.Material.dll.mdb",
         "lib/MonoAndroid90/Xamarin.Forms.Material.pdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Material.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Material.dll.mdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Material.pdb",
         "lib/netstandard1.0/_._",
         "xamarin.forms.visual.material.3.6.0.344457.nupkg.sha512",
@@ -1356,10 +1359,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

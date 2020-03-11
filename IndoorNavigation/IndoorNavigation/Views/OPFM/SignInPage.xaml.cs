@@ -29,7 +29,7 @@ namespace IndoorNavigation
             InitializeComponent();
             IDnumEntry.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeCharacter);
             RgDayPicker.Date = app.RgDate;
-            IDnumEntry.Text = Preferences.Get("ID_NUMBER_STRING", string.Empty);
+            IDnumEntry.Text = Preferences.Get("ID_NUMBER_STRING", "B122276055");
         }
 
         async private void Button_Clicked(object sender, EventArgs e)
